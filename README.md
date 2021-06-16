@@ -18,3 +18,5 @@ https://www.cnblogs.com/wade-luffy/p/5969418.html
   JVM对那种会有多线程加锁，但不存在锁竞争的情况也做了优化，听起来比较拗口，但在现实应用中确实是可能出现这种情况，因为线程之前除了互斥之外也可能发生同步关系，被同步的两个线程（一前一后）对共享对象锁的竞争很可能是没有冲突的。对这种情况，JVM用一个epoch表示一个偏向锁的时间戳（真实地生成一个时间戳代价还是蛮大的，因此这里应当理解为一种类似时间戳的identifier）
   
 
+# OOM
+在 堆、虚拟机栈和本地方法栈、方法区、运行时常量池（metaspaceSize）、本机直接内存（反射使用Unsafe::allocateMemory分配内存） 都可能会出现OOM或者是StackOverflowError。

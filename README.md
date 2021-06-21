@@ -20,3 +20,38 @@ https://www.cnblogs.com/wade-luffy/p/5969418.html
 
 # OOM
 在 堆、虚拟机栈和本地方法栈、方法区、运行时常量池（metaspaceSize）、本机直接内存（反射使用Unsafe::allocateMemory分配内存） 都可能会出现OOM或者是StackOverflowError。
+
+# jstat
+gc的运行内核的理解：
+
+S0C - survivor 0区域的容量，以KB为单位
+S1C - survivor 1区域的容量，以KB为单位
+Young Gen被划分为1个Eden Space和2个Suvivor Space。当对象刚刚被创建的时候，是放在Eden space。垃圾回收的时候，会扫描Eden Space和一个Suvivor Space。如果在垃圾回收的时候发现Eden Space中的对象仍然有效，则会将其复制到另外一个Suvivor Space。
+
+就这样不断的扫描，最后经过多次扫描发现任然有效的对象会被放入Old Gen表示其生命周期比较长，可以减少垃圾回收时间。
+
+S0U - survivor 0区域的使用大小，以KB为单位
+S1U - survivor 1区域的使用大小，以KB为单位
+EC - Eden区域的容量，以KB为单位
+EU - Eden区域的使用，以KB为单位
+OC - old区域的容量，以KB为单位
+OU - old区域的使用，以KB为单位
+MC - Metaspace元数据区的 Committed Size，以KB为单位
+MU - Metaspace元数据区的使用大小，以KB为单位
+在JDK8之前，类定义、字节码和常量等很少会变更的信息是放在持久代Perm Gen中的。不过在JDK8之后，Perm Gen已经被取消了，现在叫做Metaspace。Metaspace并不在java虚拟机中，它使用的是本地内存。Metaspace可以通过-XX:MaxMetaspaceSize来控制。
+
+CCSC - Compressed class的Committed Size，以KB为单位
+CCSU - Compressed class的使用大小，以KB为单位
+Compressed Class Space，它是和-XX:+UseCompressedOops，-XX:+UseCompressedClassesPointers有关的。实际上是一个指针的压缩，可以使用32bits来表示之前64bits的指针。
+
+YGC - young generation的GC次数
+YGCT - young generation的GC时间
+FGC - full GC的次数
+FGCT - full GC的时间
+GCT - 总的GC时间
+
+这两个指标描述的比较少，原文的解释是：
+Add CGC column to jstat for monitoring STW (stop the world) phases in concurrent GC.
+
+CGC: 并发GC时候的次数
+CGCT: 并发GC时候的所花费的时长

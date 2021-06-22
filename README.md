@@ -23,7 +23,7 @@ https://www.cnblogs.com/wade-luffy/p/5969418.html
 
 # jstat
 gc的运行内核的理解：
-
+```
 S0C - survivor 0区域的容量，以KB为单位
 S1C - survivor 1区域的容量，以KB为单位
 Young Gen被划分为1个Eden Space和2个Suvivor Space。当对象刚刚被创建的时候，是放在Eden space。垃圾回收的时候，会扫描Eden Space和一个Suvivor Space。如果在垃圾回收的时候发现Eden Space中的对象仍然有效，则会将其复制到另外一个Suvivor Space。
@@ -55,3 +55,11 @@ Add CGC column to jstat for monitoring STW (stop the world) phases in concurrent
 
 CGC: 并发GC时候的次数
 CGCT: 并发GC时候的所花费的时长
+```
+# jstack
+
+jstack -l pid : 除堆栈外，显示关于锁的附加信息
+jstack -F pid ：当正常输出的请求不被响应时，强制输出线程堆栈
+jstack -m pid： 如果调用到本地方法的话，可以显示C/C++的堆栈
+
+可以在自己的代码中使用 java.lang.Thread 的 getAllStackTraces() 来捕获虚拟机中的所有线程的StackTraceElement对象。

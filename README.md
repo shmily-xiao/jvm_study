@@ -22,6 +22,7 @@ https://www.cnblogs.com/wade-luffy/p/5969418.html
 在 堆、虚拟机栈和本地方法栈、方法区、运行时常量池（metaspaceSize）、本机直接内存（反射使用Unsafe::allocateMemory分配内存） 都可能会出现OOM或者是StackOverflowError。
 
 # jstat
+可以上orcale的官网去查看虚拟机的工具的用法。
 gc的运行内核的理解：
 ```
 S0C - survivor 0区域的容量，以KB为单位

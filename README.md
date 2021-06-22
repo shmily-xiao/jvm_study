@@ -57,9 +57,9 @@ CGC: 并发GC时候的次数
 CGCT: 并发GC时候的所花费的时长
 ```
 # jstack
-
+```
 jstack -l pid : 除堆栈外，显示关于锁的附加信息
 jstack -F pid ：当正常输出的请求不被响应时，强制输出线程堆栈
 jstack -m pid： 如果调用到本地方法的话，可以显示C/C++的堆栈
-
+```
 可以在自己的代码中使用 java.lang.Thread 的 getAllStackTraces() 来捕获虚拟机中的所有线程的StackTraceElement对象。

@@ -64,3 +64,6 @@ jstack -F pid ：当正常输出的请求不被响应时，强制输出线程堆
 jstack -m pid： 如果调用到本地方法的话，可以显示C/C++的堆栈
 ```
 可以在自己的代码中使用 java.lang.Thread 的 getAllStackTraces() 来捕获虚拟机中的所有线程的StackTraceElement对象。
+
+# jhsdb
+服务性代理的工作原理更Linux的GDB或者是Windows上的WinBg相似。

@@ -72,3 +72,4 @@ jstack -m pid： 如果调用到本地方法的话，可以显示C/C++的堆栈
 Can't attach to the process. Could be caused by an incorrect pid or lack of privileges.
 ```
 我用的是11.0.8 和 11.0.11 、12都不行
+换成11.0.4 就可以了！

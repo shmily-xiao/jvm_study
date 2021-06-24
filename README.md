@@ -67,3 +67,8 @@ jstack -m pid： 如果调用到本地方法的话，可以显示C/C++的堆栈
 
 # jhsdb
 服务性代理的工作原理更Linux的GDB或者是Windows上的WinBg相似。
+目前 mac 没有办法测试 总是报 
+```
+Can't attach to the process. Could be caused by an incorrect pid or lack of privileges.
+```
+我用的是11.0.8 和 11.0.11 、12都不行

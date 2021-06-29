@@ -78,3 +78,6 @@ Can't attach to the process. Could be caused by an incorrect pid or lack of priv
 没有办法 scanoops 地址 找到对象内容
 
 _
+
+# JConsole
+是一个基于jmx的可视化监控、管理工具。

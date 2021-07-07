@@ -87,3 +87,6 @@ _
 # VisualVM
 ## B-trace 
 利用 hotspot 的instrument功能，可以加入原本不存在的调试代码。
+
+# JMC
+## JFR 

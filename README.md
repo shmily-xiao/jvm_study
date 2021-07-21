@@ -90,4 +90,7 @@ _
 
 # JMC
 ## JFR 
+jfr是Java Flight Recorder的缩写，jfr是java应用程序的分析工具。它可以收集JVM在运行期间所产生的一系列事件，并生成文件和分析。
+开启JFR的JVM参数：
+-XX:+UnlockCommercialFeatures -XX:+FlightRecorder
 

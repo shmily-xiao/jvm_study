@@ -80,3 +80,23 @@ https://juejin.cn/post/6959405798556434440
 
 
 ## 如何从代码中获取JFR的事件
+可以参考 jfr print xxx.jfr 的值。
+
+使用 jps 查找 当前可用的线程
+```aidl
+// 开启 jfr
+jcmd 24598 JFR.start 
+
+// 导出数据
+jcmd 24598 JFR.dump name=2 filename=myflight.jfr
+
+// 多执行几次
+jcmd 24598 JFR.dump name=2 filename=myflight.jfr
+
+jcmd 24598 JFR.dump name=2 filename=myflight.jfr
+
+// 结束
+jcmd 24598 JFR.stop
+```
+
+

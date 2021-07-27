@@ -77,3 +77,6 @@ https://juejin.cn/post/6959405798556434440
 | recording	 | 记录线程的ID值	| Long	| 1
 | copy_to_file	| 拷贝记录数据到文件	| String	| 无
 | compress_copy	| GZip压缩“copy_to_file”的文件	| Boolean	| False
+
+
+## 如何从代码中获取JFR的事件

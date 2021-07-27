@@ -9,11 +9,11 @@ public class SleepTest {
         try {
             while (true){
                 items.add(new Object());
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    System.out.println(e.getMessage());
-                }
+//                try {
+//                    Thread.sleep(1000);
+//                } catch (InterruptedException e) {
+//                    System.out.println(e.getMessage());
+//                }
             }
         } catch (OutOfMemoryError e){
             System.out.println(e.getMessage());

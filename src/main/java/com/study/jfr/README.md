@@ -79,11 +79,11 @@ https://juejin.cn/post/6959405798556434440
 | compress_copy	| GZip压缩“copy_to_file”的文件	| Boolean	| False
 
 
-## 如何从代码中获取JFR的事件
+## 如何生成JFR文件
 可以参考 jfr print xxx.jfr 的值。
 
 使用 jps 查找 当前可用的线程
-```aidl
+```shell
 // 开启 jfr
 jcmd 24598 JFR.start 
 

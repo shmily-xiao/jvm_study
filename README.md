@@ -94,5 +94,4 @@ jfr是Java Flight Recorder的缩写，jfr是java应用程序的分析工具。�
 开启JFR的JVM参数：
 -XX:+UnlockCommercialFeatures -XX:+FlightRecorder
 
-# 
 

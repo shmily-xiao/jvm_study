@@ -26,7 +26,7 @@ public class JfrEventTest {
                     ));
 
     public void readJFRFile() throws IOException {
-        RecordingFile recordingFile = new RecordingFile(Paths.get("/Users/zaijunwang/workspace/java/jvm_study/myflight.jfr"));
+        RecordingFile recordingFile = new RecordingFile(Paths.get("/Users/wzj/workspace/alibaba/speed-server/myflight.jfr"));
         while (recordingFile.hasMoreEvents()) {
             RecordedEvent event = recordingFile.readEvent();
             if (event != null) {

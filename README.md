@@ -97,3 +97,4 @@ jfr是Java Flight Recorder的缩写，jfr是java应用程序的分析工具。�
 jfr文件的版本问题:
 
 用openjdk8 282 之后都是2.x
+

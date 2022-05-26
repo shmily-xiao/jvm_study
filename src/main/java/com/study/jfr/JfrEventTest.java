@@ -62,7 +62,8 @@ public class JfrEventTest {
 
     public void readJFRFile() throws IOException {
         Set<String> keys = new HashSet<>();
-        RecordingFile recordingFile = new RecordingFile(Paths.get("/Users/wzj/workspace/alibaba/speed-server/myflightv2.jfr"));
+        RecordingFile recordingFile = new RecordingFile(Paths.get("/Users/wzj/jfr_dev/jfr.log"));
+//        RecordingFile recordingFile = new RecordingFile(Paths.get("/Users/wzj/workspace/alibaba/speed-server/myflightv2.jfr"));
         while (recordingFile.hasMoreEvents()) {
             RecordedEvent event = recordingFile.readEvent();
 
@@ -88,7 +89,8 @@ public class JfrEventTest {
                          ]
                          }
                      * **/
-                    System.out.println(event);
+//                    System.out.println(event);
+//                    System.out.println(JSON.toJSONString(event));
 
                 }
                 Map<String, String> details = convertEvent(event);

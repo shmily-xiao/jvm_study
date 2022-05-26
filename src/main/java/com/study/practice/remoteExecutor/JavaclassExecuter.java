@@ -26,7 +26,7 @@ public class JavaclassExecuter {
         Class aClass = hotSwapClassLoader.loadByte(modiBytes);
         try{
             // 这个main方法是 传入的类的
-            Method method = aClass.getMethod("main", new Class[]{String.class});
+            Method method = aClass.getMethod("main", new Class[]{String[].class});
             method.invoke(null, new String[]{null});
         }catch (Exception e){
             e.printStackTrace(HackSystem.out);

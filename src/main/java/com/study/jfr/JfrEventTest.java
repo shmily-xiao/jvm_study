@@ -8,6 +8,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.nio.file.Paths;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -22,19 +23,21 @@ public class JfrEventTest {
     }
 
     private static final Map<Predicate<RecordedEvent>,
-            Function<RecordedEvent, Map<String, String>>> mappers =
+            Function<RecordedEvent, Map<String, String>>> mappers = new HashMap<>();
 //            Map.of(testMaker("ClassLoadingStatistics"),
 //                    ev -> Map.of("start", ""+ ev.getStartTime(),
 //                            "Loaded Class Count",""+ ev.getValue("loadedClassCount"),
 //                            "Unloaded Class Count", ""+ ev.getValue("unloadedClassCount"),
 //                            "Java Monitor Blocked", ""+ev.getValue("Monitor Class")
 //                    ));
-      Map.of(testMaker("ClassLoadingStatistics"),
-              ev -> Map.of("start", ""+ ev.getStartTime(),
-                "Loaded Class Count",""+ ev.getValue("loadedClassCount"),
-                "Unloaded Class Count", ""+ ev.getValue("unloadedClassCount"),
-                "Java Monitor Blocked", ""+ev.getValue("Monitor Class")
-                ));
+
+        // 需要java11   java8用不了
+//      Map.of(testMaker("ClassLoadingStatistics"),
+//              ev -> Map.of("start", ""+ ev.getStartTime(),
+//                "Loaded Class Count",""+ ev.getValue("loadedClassCount"),
+//                "Unloaded Class Count", ""+ ev.getValue("unloadedClassCount"),
+//                "Java Monitor Blocked", ""+ev.getValue("Monitor Class")
+//                ));
 
     public void saveContent2Txt() throws IOException{
         RecordingFile recordingFile = new RecordingFile(Paths.get("/Users/wzj/workspace/alibaba/speed-server/myflightv2.jfr"));

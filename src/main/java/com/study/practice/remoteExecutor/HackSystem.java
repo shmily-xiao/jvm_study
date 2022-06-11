@@ -97,13 +97,13 @@ public class HackSystem {
         return System.getenv();
     }
 
-    public static System.Logger getLogger(String name){
-        return System.getLogger(name);
-    }
-
-    public static System.Logger getLogger(String name, ResourceBundle bundle) {
-        return System.getLogger(name, bundle);
-    }
+//    public static System.Logger getLogger(String name){
+//        return System.getLogger(name);
+//    }
+//
+//    public static System.Logger getLogger(String name, ResourceBundle bundle) {
+//        return System.getLogger(name, bundle);
+//    }
 
     public static void exit(int status) {
        System.exit(status);

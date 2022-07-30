@@ -13,8 +13,12 @@ public class JfrStreamingTest {
         Configuration config = Configuration.getConfiguration("default");
         try (RecordingStream es = new RecordingStream(config)) {
             es.onEvent("jdk.GarbageCollection", System.out::println);
-            es.onEvent("jdk.CPULoad", System.out::println);
+//            es.onEvent("jdk.CPULoad", System.out::println);
             es.onEvent("jdk.JVMInformation", System.out::println);
+            es.onEvent("jdk.SocketRead", System.out::println);
+            es.onEvent("jdk.JavaMonitorEnter", event -> {
+                System.out.println(event.getClass("monitorClass"));
+            });
             es.setMaxAge(Duration.ofSeconds(10));
             es.start();
         }
